@@ -31,7 +31,7 @@
 
 <button (click)="toggleSecretPassword()" class="btn btn-secondary">Display details</button>
 <p [hidden]="secretPasswordVisible">Secret password = marlin</p>
-<div *ngFor="let logItem of log"
-     [ngStyle]="{backgroundColor: logItem > 5 ? 'blue' : 'transparent'}"
-     [ngClass]="{'white-text': logItem > 5}"
+<div *ngFor="let logItem of log; let index = index"
+     [ngStyle]="{backgroundColor: index > 5 ? 'blue' : 'transparent'}"
+     [ngClass]="{'white-text': index > 5}"
 >{{logItem}}</div>
