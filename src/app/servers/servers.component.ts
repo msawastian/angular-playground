@@ -11,6 +11,9 @@ export class ServersComponent implements OnInit {
   serverName = '';
   userName = '';
   serverCreated = false;
+  servers = ['Testserver', 'Testserver2'];
+  secretPasswordVisible = false;
+  log = [];
 
   constructor() {
     setTimeout(() => {this.allowNewServer = true; }, 2000);
@@ -21,6 +24,7 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
@@ -30,5 +34,10 @@ export class ServersComponent implements OnInit {
 
   resetUserName() {
     this.userName = '';
+  }
+
+  toggleSecretPassword() {
+    this.secretPasswordVisible = !this.secretPasswordVisible;
+    this.log.push(this.log.length + 1);
   }
 }

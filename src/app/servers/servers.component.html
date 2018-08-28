@@ -27,7 +27,11 @@
 <!--<p [innerText]="allowNewServer"></p>-->
 <!--<p [innerText]="serverCreationStatus"></p>-->
 <p *ngIf="serverCreated">Server was created, server name is {{serverName}}</p>
-<app-server></app-server>
-<app-server></app-server>
-<app-warning-alert></app-warning-alert>
-<app-success-alert></app-success-alert>
+<app-server *ngFor="let server of servers"></app-server>
+
+<button (click)="toggleSecretPassword()" class="btn btn-secondary">Display details</button>
+<p [hidden]="secretPasswordVisible">Secret password = marlin</p>
+<div *ngFor="let logItem of log"
+     [ngStyle]="{backgroundColor: logItem > 5 ? 'blue' : 'transparent'}"
+     [ngClass]="{'white-text': logItem > 5}"
+>{{logItem}}</div>
